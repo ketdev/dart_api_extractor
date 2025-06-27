@@ -1,0 +1,14 @@
+name: dart_api_extractor
+description: CLI tool that analyzes Dart files to extract public declarations (classes, methods, variables) into a structured API summary, with optional documentation.
+version: 1.0.0
+repository: https://github.com/ketdev/dart_api_extractor
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  analyzer: ^7.4.5
+  path: ^1.9.1
+
+dev_dependencies:
+  lints: ^5.0.0
