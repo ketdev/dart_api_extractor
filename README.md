@@ -19,9 +19,15 @@
 Clone this repo and run with Dart:
 
 ```bash
-git clone https://github.com/your-username/dart_api_extractor.git
+git clone https://github.com/ketdev/dart_api_extractor.git
 cd dart_api_extractor
-dart run bin/dart_analyzer.dart <args>
+dart run src/dart_api_extractor.dart <args>
+```
+
+or build the executable:
+
+```bash
+dart compile exe src/dart_api_extractor.dart -o build/dart_api_extractor
 ```
 
 > Requires Dart SDK installed and available in your `PATH`.
@@ -29,8 +35,8 @@ dart run bin/dart_analyzer.dart <args>
 ## Usage
 
 ```bash
-dart dart_analyzer.dart <input_file.dart> [-o <output_file>] [--no-docs]
-dart dart_analyzer.dart -d <directory> [--no-docs] [--processes <num>]
+dart_api_extractor <input_file.dart> [-o <output_file>] [--no-docs]
+dart_api_extractor -d <directory> [--no-docs] [--processes <num>]
 ```
 
 ### Options
@@ -46,24 +52,24 @@ dart dart_analyzer.dart -d <directory> [--no-docs] [--processes <num>]
 
 ```bash
 # Analyze a single file
-dart dart_analyzer.dart lib/example.dart
+dart_api_extractor lib/example.dart
 
 # Analyze and write to custom output
-dart dart_analyzer.dart lib/example.dart -o summary.txt
+dart_api_extractor lib/example.dart -o summary.txt
 
 # Analyze without documentation
-dart dart_analyzer.dart lib/example.dart --no-docs
+dart_api_extractor lib/example.dart --no-docs
 
 # Analyze a whole directory (parallelized)
-dart dart_analyzer.dart -d lib/
+dart_api_extractor -d lib/
 
 # Analyze a directory with 4 parallel processes
-dart dart_analyzer.dart -d lib/ --processes 4
+dart_api_extractor -d lib/ --processes 4
 ```
 
 ## Output Format
 
-The output is a readable text file showing public declarations in a tree structure with optional documentation and signatures:
+The output is a readable text file similar to the original dart code, showing public declarations only with optional documentation and signatures:
 
 ```dart
 /// This is a sample class
